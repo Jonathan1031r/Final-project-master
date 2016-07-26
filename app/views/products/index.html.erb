@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Eternal Root</title>
+</head>
+<body>
+
+<div class="container">
+
+	<center>
+		<h1><u>
+			Eternal Root
+		</u></h1>
+	<div class="col-sm-2 pull-left">
+		<P>Left</P>
+
+	</div>
+	<div class="col-sm-8 js-products" >
+		<P>Middle</P>
+		<%  @productsArray.each do |x| %>
+		<button class="img-btn js-img-btn" data-description= "<%=x.description%>" 
+			data-title= "<%=x.title%>" 
+			data-price= "<%=x.price%>"
+			data-image= "<%=x.image%>">
+			<img class="js-img" src="<%= x.image %>" width="250" height="250" >
+		<p><%= x.title %></p>
+		</button>
+		<% end %>
+
+	</div>
+	<div class="col-sm-2 pull-right">
+		<P>Right</P>
+
+	</div>
+	</center>
+
+
+
+<!-- modal view (hidden at first) -->
+	<div class="modal fade js-tree-modal">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+
+	      <div class="modal-header">
+	        <button class="close" data-dismiss="modal">
+	          <span>&times;</span>
+	        </button>
+
+	        <h3 class="modal-title">
+	          <span class="js-tree-title pull-right">title</span>
+	        </h3>
+				<img class="js-tree-img" src="" width="250" height="250">
+	      </div><!-- .modal-header -->
+
+	      <div class="modal-body">
+	        <dt class="js-tree-description">description</dt>
+	        <dl class="dl-horizontal">
+
+	          <dt>Price: $</dt>
+	          <dd class="js-tree-price">500</dd>
+	        </dl>
+	      </div><!-- .modal-body -->
+
+	    </div><!-- .modal-content -->
+	  </div><!-- .modal-dialog -->
+	</div><!-- .modal -->
+</div> <!-- .contianer -->
+
+</body>
+<footer>
+	
+</footer>
+</html>
+
+

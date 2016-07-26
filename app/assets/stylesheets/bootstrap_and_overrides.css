@@ -1,0 +1,73 @@
+/*
+  =require twitter-bootstrap-static/bootstrap
+
+  Use Font Awesome icons (default)
+  To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
+  =require twitter-bootstrap-static/fontawesome
+  */
+
+
+.signup-header{
+	margin-right: 13px;
+}
+
+.signin-header{
+	margin-right: 13px;
+}
+
+.fa-university{
+	margin-left: 13px;
+}
+
+.fa-tree{
+	margin-left: 13px;
+}
+
+.css-header{
+	margin-top: 13px;
+}
+
+body{
+ 	background-image: url("http://www.soultravelmultimedia.com/wp-content/uploads/2011/09/Nature-Wallpaper-15-1024x640.jpg");
+	background-position: absolute;
+	background-size: cover;
+ }
+
+
+p{
+	color: white;
+	font-family: cursive;
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+ 
+ }
+
+img{
+
+ 	margin: 2px;
+ 	padding: 2px;
+ 	border: 2px;
+ 	border-style: solid;
+ 	border-color: gold;
+
+ }
+
+.img-btn{
+ 	opacity: 0.5;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+ 	border-radius: 10px;
+ 	background-color: #4D95D0;
+ }
+
+ footer{
+	color: white;
+	font-family: cursive;
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+}
