@@ -6,6 +6,21 @@
   =require twitter-bootstrap-static/fontawesome
   */
 
+.grow img {
+  height: 250px;
+  width: 250px;
+ 
+  -webkit-transition: all 1s ease;
+     -moz-transition: all 1s ease;
+       -o-transition: all 1s ease;
+      -ms-transition: all 1s ease;
+          transition: all 1s ease;
+}
+ 
+.grow img:hover {
+  width: 300px;
+  height: 300px;
+}
 
 .signup-header{
 	margin-right: 13px;
@@ -56,7 +71,7 @@ img{
  }
 
 .img-btn{
- 	opacity: 0.5;
+ 	opacity: 0.65;
     filter: alpha(opacity=50); /* For IE8 and earlier */
  	border-radius: 10px;
  	background-color: #4D95D0;

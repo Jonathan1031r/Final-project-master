@@ -18,13 +18,15 @@
 	<div class="col-sm-8 js-products" >
 		<P>Middle</P>
 		<%  @productsArray.each do |x| %>
-		<button class="img-btn js-img-btn" data-description= "<%=x.description%>" 
-			data-title= "<%=x.title%>" 
-			data-price= "<%=x.price%>"
-			data-image= "<%=x.image%>">
-			<img class="js-img" src="<%= x.image %>" width="250" height="250" >
-		<p><%= x.title %></p>
-		</button>
+			<button class="img-btn js-img-btn" data-description= "<%=x.description%>" 
+				data-title= "<%=x.title%>" 
+				data-price= "<%=x.price%>"
+				data-image= "<%=x.image%>">
+				<div class="grow pic">
+				<img class="js-img" src="<%= x.image %>">
+				</div>	
+			<p><%= x.title %></p>
+			</button>
 		<% end %>
 
 	</div>
@@ -65,6 +67,31 @@
 	  </div><!-- .modal-dialog -->
 	</div><!-- .modal -->
 </div> <!-- .contianer -->
+
+<div class="modal fade js-last-will">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <p>One fine body&hellip;</p>
+        <form method="post" action="user_session_path">
+        	<input type="file" name="last_will" accept="application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/msword">
+  			<input type="submit">
+        </form>
+      </div>
+
+      <div class="modal-footer">
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
 
 </body>
 <footer>
