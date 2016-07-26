@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'gon'
+gem 'paperclip', '~> 4.3', '>= 4.3.6'
 
 gem 'twitter-bootstrap-rails'
 
