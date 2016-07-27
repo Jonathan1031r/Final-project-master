@@ -31,14 +31,14 @@ function showDetails (){
 });
 
 
-$(document).ready(function (){
-	$(".js-last-will").on("click", function(event){
+$(document).on("turbolinks:load", function (){
+	$(".js-show-last-will").on("click", function(event){
 		event.preventDefault();
 		lastWillForm()
 	})
 
 
 function lastWillForm (){
-	$(".js-last-will").modal("show")
+	$(".js-last-will-modal").modal("show")
 }	
 });

@@ -32,7 +32,11 @@
 	</div>
 	<div class="col-sm-2 pull-right">
 		<P>Right</P>
-
+		<form method="get" action="/api/products/comments">
+			<input type="text" name="name" placeholder="Add your name">
+			<input type="text" name="comment" placeholder="Comments of inspiration">
+			<button class="btn btn-success">Submit</button>
+		</form>
 	</div>
 	</center>
 
@@ -57,9 +61,13 @@
 	      <div class="modal-body">
 	        <dt class="js-tree-description">description</dt>
 	        <dl class="dl-horizontal">
-
+			<span>
 	          <dt>Price: $</dt>
 	          <dd class="js-tree-price">500</dd>
+	          	<a href="<%=%>" class="btn btn-success">
+					Purchase
+				</a>
+			</span>	
 	        </dl>
 	      </div><!-- .modal-body -->
 
@@ -68,21 +76,24 @@
 	</div><!-- .modal -->
 </div> <!-- .contianer -->
 
-<div class="modal fade js-last-will">
+
+<div class="modal fade js-last-will-modal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h4 class="modal-title">Modal title</h4>
+        <h4 class="modal-title">UpLoad you Last Will</h4>
       </div>
       <div class="modal-body">
         <p>One fine body&hellip;</p>
-        <form method="post" action="user_session_path">
-        	<input type="file" name="last_will" accept="application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/msword">
-  			<input type="submit">
-        </form>
+		<% if user_signed_in? %>
+	        <%= form_for @current_user, url: "/users/last_will", html: { multipart: true } do |form| %>
+				<%= form.file_field :avatar, accept: "application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/msword" %>
+				<%= form.button %>
+			<% end %>
+		<% end %>
       </div>
 
       <div class="modal-footer">

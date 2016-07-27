@@ -21,7 +21,14 @@
 				<font class="signin-header" size="4">
 				<%= link_to "Logout", destroy_user_session_path, method: :delete %>
 				</font>
-				<button class="js-last-will btn-success">Upload Your Last Will</button>	
+
+				<% if !current_user.avatar? %>
+					<button class="js-show-last-will btn btn-success">Upload Your Last Will</button>
+				<% else %>
+					<a href="<%= current_user.avatar.url %>" class="btn btn-success">
+						Download last will
+					</a>
+				<% end %> 
 			<% else %>
 				<a href="/users/sign_in">
 					<font class="signin-header" size="4">LogIn</font>

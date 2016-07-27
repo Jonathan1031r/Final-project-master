@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
-	def create
-		@user = User.create( user_params )
+	def last_will
+		@current_user = current_user
+
+		@current_user.update!(user_params)
+
+		redirect_to products_path
+
 	end
 
 private
@@ -12,3 +17,6 @@ private
 	  params.require(:user).permit(:avatar)
 	end
 end
+
+
+
