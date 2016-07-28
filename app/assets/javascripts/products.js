@@ -6,9 +6,9 @@ $(document).on("turbolinks:load", function (){
 		var title = $(event.currentTarget).data("title")
 		var price = $(event.currentTarget).data("price")
 		var image = $(event.currentTarget).data("image")
-		showDetails()
+		showTreeDetails()
 
-		function showDetails (){
+		function showTreeDetails (){
 
 			console.log(title)
 
@@ -21,6 +21,16 @@ $(document).on("turbolinks:load", function (){
 
 		}
 	});
+});
+
+$(document).on("turbolinks:load", function (){
+	$(".js-about-btn").on("click", function (event){
+	showAboutModal()
+
+	function showAboutModal (){
+		$(".about-modal").modal("show")
+		}
+	})
 });
 
 $(document).on("turbolinks:load", function (){
