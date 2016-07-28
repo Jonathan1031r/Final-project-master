@@ -1,44 +1,62 @@
 <nav class="navbar navbar-inverse">
 
-
- 	<div class="css-header">
-		<span>
-			<a href="/products">
-				<i class="fa fa-tree" aria-hidden="true">
-					<font size="4">Home</font> 
-				</i>
-			</a>
-			<a href="">
-				<i class="fa fa-university" aria-hidden="true">
-					<font size="4">Montuary</font>
-				</i>
-			</a>
-		</span>
-
-		<span class="pull-right">
-
-			<% if user_signed_in? %>
-				<font class="signin-header" size="4">
-				<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+	<div class="css-header-left col-sm-4">
+		<a href="/products">
+			<i class="fa fa-tree" aria-hidden="true">
+				<font size="4">
+					Home
+				</font> 
+			</i>
+		</a>
+		<a href="">
+			<i class="fa fa-university" aria-hidden="true">
+				<font size="4">
+					Montuary
 				</font>
+			</i>
+		</a>
+		<a class="js-about-btn">
+			<i class="fa fa-envira" aria-hidden="true">
+				<font size="4">
+					About
+				</font>
+			</i>
+		</a>
+	</div>
+	<div class="col-sm-4 title" align="center">
+		<h3>
+			Eternal Root
+		</h3>
+	</div>
+	<div class="col-sm-4 css-header-right" align="right">
 
-				<% if !current_user.avatar? %>
-					<button class="js-show-last-will btn btn-success">Upload Your Last Will</button>
-				<% else %>
-					<a href="<%= current_user.avatar.url %>" class="btn btn-success">
-						Download last will
-					</a>
-				<% end %> 
+		<% if user_signed_in? %>
+			<font class="signout-header" size="4">
+				<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+			</font>
+
+			<% if !current_user.avatar? %>
+				<button class="js-show-last-will btn btn-success">
+					Upload Your Last Will
+				</button>
 			<% else %>
-				<a href="/users/sign_in">
-					<font class="signin-header" size="4">LogIn</font>
+				<a href="<%= current_user.avatar.url %>" class="btn btn-success">
+					Download last will
 				</a>
+			<% end %> 
+		<% else %>
+			<a href="/users/sign_in">
+				<font class="signin-header" size="4">
+					LogIn
+				</font>
+			</a>
 
-				<a href="/users/sign_up">
-					<font class="signup-header" size="4">SignUp</font>
-				</a>
-			<% end %>
+			<a href="/users/sign_up">
+				<font class="signup-header" size="4">
+					SignUp
+				</font>
+			</a>
+		<% end %>
 
-		</span>
 	</div>
 </nav>

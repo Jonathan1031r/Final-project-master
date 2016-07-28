@@ -5,19 +5,25 @@
 </head>
 <body>
 
-<div class="container">
+<div class="container-fluid">
 
 	<center>
-		<h1><u>
-			Eternal Root
-		</u></h1>
-	<div class="col-sm-2 pull-left">
-		<P>Left</P>
+	<div class="col-sm-2 css-column pull-left">
 
+		<form method="get" action="/api/products/comments">
+			<input class="js-name" type="text" placeholder="Add your name">
+			<input class="js-comment" type="text" placeholder="Comments of inspiration">
+			<button class="js-submit-comment btn btn-success">Submit</button>
+		</form>
+		<p class="css-comments js-comments"></p>
+		<p class="css-comments js-name"></p>
+			<% @comments_array.each do |x| %>
+				<p class="css-comments"><%= x.content %></p>
+				<p class="css-comments">-<%= x.author_name %></p>
+			<% end %>
 	</div>
 	<div class="col-sm-8 js-products" >
-		<P>Middle</P>
-		<%  @productsArray.each do |x| %>
+		<%  @products_array.each do |x| %>
 			<button class="img-btn js-img-btn" data-description= "<%=x.description%>" 
 				data-title= "<%=x.title%>" 
 				data-price= "<%=x.price%>"
@@ -30,13 +36,16 @@
 		<% end %>
 
 	</div>
-	<div class="col-sm-2 pull-right">
-		<P>Right</P>
-		<form method="get" action="/api/products/comments">
-			<input type="text" name="name" placeholder="Add your name">
-			<input type="text" name="comment" placeholder="Comments of inspiration">
-			<button class="btn btn-success">Submit</button>
-		</form>
+	<div class="col-sm-2 css-column pull-right">
+
+		<div class="css-comments">
+			<p class="css-comments js-comments"></p>
+			<p class="css-comments js-name"></p>
+				<% @comments_array.each do |x| %>
+					<p class="css-comments"><%= x.content %></p>
+					<p class="css-comments">-<%= x.author_name %></p>
+				<% end %>
+		</div>
 	</div>
 	</center>
 

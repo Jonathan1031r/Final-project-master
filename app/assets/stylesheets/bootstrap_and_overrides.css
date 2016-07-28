@@ -16,6 +16,10 @@
       -ms-transition: all 1s ease;
           transition: all 1s ease;
 }
+
+.css-header-right{
+	margin-top: 18px;
+}
  
 .grow img:hover {
   width: 300px;
@@ -23,14 +27,25 @@
 }
 
 .signup-header{
+	margin-top: 20px;
 	margin-right: 13px;
 }
 
-.signin-header{
+.title{
+	margin-bottom: 10px;
+}
+
+.signout-header{
 	margin-right: 13px;
+	margin-top: 20px;
 }
 
 .fa-university{
+	margin-top: 20px;
+	margin-left: 13px;
+}
+
+.fa-envira{
 	margin-left: 13px;
 }
 
@@ -38,16 +53,42 @@
 	margin-left: 13px;
 }
 
-.css-header{
-	margin-top: 13px;
+
+.col-sm-2{
+	padding: 10px;
+}
+
+.container{
+	max-width: 300px;
 }
 
 body{
  	background-image: url("http://www.soultravelmultimedia.com/wp-content/uploads/2011/09/Nature-Wallpaper-15-1024x640.jpg");
+	background-color: ;
 	background-position: absolute;
 	background-size: cover;
  }
 
+h3{
+	color: #4D95D0;
+	font-family: cursive;
+	font-size: 50px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;	
+}
+
+.css-comments{
+	color: gold;
+/*	color: #EDB71C;*/
+	font-family: cursive;
+	font-size: 24px;
+	font-style: normal;
+	font-variant: small-caps;
+	font-weight: 500;
+	line-height: 26.4px;
+}
 
 p{
 	color: white;
@@ -67,8 +108,14 @@ img{
  	border: 2px;
  	border-style: solid;
  	border-color: gold;
+}
 
- }
+.css-column{
+	opacity: 0.7;
+    filter: alpha(opacity=50);  
+ 	border-radius: 10px;
+ 	background-color: #4D95D0;	
+}
 
 .img-btn{
  	opacity: 0.65;
