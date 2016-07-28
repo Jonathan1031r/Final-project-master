@@ -96,7 +96,9 @@
         <h4 class="modal-title">UpLoad you Last Will</h4>
       </div>
       <div class="modal-body">
-        <p>One fine body&hellip;</p>
+      	<bt>
+      		As you upload your last will, it will be sent to our personal notary who will legalize your document. We will keep in contact with you via email through out the process.
+      	</bt>
 		<% if user_signed_in? %>
 	        <%= form_for @current_user, url: "/users/last_will", html: { multipart: true } do |form| %>
 				<%= form.file_field :avatar, accept: "application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/msword" %>
