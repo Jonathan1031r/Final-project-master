@@ -1,0 +1,2 @@
+class MortuariesController < ApplicationController
+end
