@@ -74,8 +74,8 @@ $(document).on("turbolinks:load", function (){
 
 
 	function updateComments (name, comments){
-		$(".js-comments").prepend(`<div><p>`+comments+`</p></div>`)
-		$(".js-name").prepend(`<p>-`+name+`</p>`)
+		$(".js-comments").prepend(`<div><p class="css-comments">`+comments+`</p></div>`)
+		$(".js-name").prepend(`<p class="css-comments">-`+name+`</p>`)
 	}
 });
 
