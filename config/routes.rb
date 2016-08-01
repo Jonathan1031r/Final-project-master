@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :mortuaries
+
   post '/api/products/comments', to: 'products#post_comments' 
   get '/api/products/comments', to: 'products#get_comments'	
 

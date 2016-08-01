@@ -129,7 +129,7 @@ img{
 }
 
 .img-btn{
- 	opacity: 0.65;
+ 	opacity: 0.75;
     filter: alpha(opacity=50); /* For IE8 and earlier */
  	border-radius: 10px;
  	background-color: #4D95D0;

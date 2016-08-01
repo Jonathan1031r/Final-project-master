@@ -2,17 +2,46 @@
 <html>
 <head>
 	<title>Mortuary</title>
+	<script>
+		var map = document.getElementById('map');
+		var handler = Gmaps.build('Google');
+    	markers = handler.addMarkers(<%=raw @hash.to_json %>);
+	</script>
 </head>
 <body>
+	<center>
+		<div style='width: 800px;'>
+			<div id="map" style='width: 800px; height: 400px;'></div>
+		</div>
+		<script type="text/javascript">
+			var map = document.getElementById('map');
+			var handler = Gmaps.build('Google');
+			handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+				handler = Gmaps.build('Google');
+				markers = handler.addMarkers([
+				{
+					"picture": {
+					"url": "https://www.google.com/webhp?#hl=en&q=mortuary+33142",
+					"width":  32,
+					"height": 32
+					},
+					"infowindow": "hello!"
+					}
+				]);
+				handler.bounds.extendWith(markers);
+				handler.fitMapToBounds();
+			});
+		</script>
+	</center>
+
 	<div class="modal fade mortuary-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-sm">
 			<div class="modal-content">
 				<form>
-					Enter your zip-code: <input type="text" name="zip">
+					Enter your zip-code: <input class="zip_code" type="text" name="zip">
 				</form>
-				<input class="js-mortuary- btn btn btn-success" type="submit" value="Submit">
-				
-				</button>  
+				<input class="js-mortuary-btn btn btn-success" data-zip="zip_code" type="submit" value="Submit">
+				 
 			</div>
 		</div>
 	</div>

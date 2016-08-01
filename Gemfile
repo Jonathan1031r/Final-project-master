@@ -1,5 +1,13 @@
 source 'https://rubygems.org'
 
+gem 'gmaps4rails'
+
+gem 'geocoder'
+
+gem 'coffee-rails', '~> 4.1.0'
+
+gem 'underscore-rails'
+
 gem 'paperclip', '~> 4.3', '>= 4.3.6'
 
 gem 'twitter-bootstrap-rails'
