@@ -1,4 +1,4 @@
 class Purchase < ApplicationRecord
-	belong_to :users
-	belong_to :products
+	belongs_to :users
+	belongs_to :products
 end

@@ -2,10 +2,9 @@
 <html>
   <head>
     <title>EternalRoot</title>
-    
-    <script src="//maps.google.com/maps/api/js?v=3.23&key=AIzaSyAV8DPFNoqeAUMr2aFHSDMZuEq0kKQJxu0"></script>
-    <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
-   
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAV8DPFNoqeAUMr2aFHSDMZuEq0kKQJxu0&libraries=place‌​s&callback" async defer></script>
+
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -13,12 +12,13 @@
   </head>
 
   <body>
-  	<%= render "layouts/header" %>
+    <%= render "layouts/header" %>
 
     <%= yield %>
   
     <%= render "layouts/footer" %>
-  </body>
+
+  </body>x
 </html>
 
 

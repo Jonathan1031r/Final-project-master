@@ -6,6 +6,12 @@ $(document).on("turbolinks:load", function (){
 		var title = $(event.currentTarget).data("title")
 		var price = $(event.currentTarget).data("price")
 		var image = $(event.currentTarget).data("image")
+		var id = $(event.currentTarget).data("id")
+		sessionStorage.setItem("the_product_id", id)
+		sessionStorage.setItem("the_product_description", description)
+		sessionStorage.setItem("the_product_title", title)
+		sessionStorage.setItem("the_product_image", image)
+		sessionStorage.setItem("the_product_price", price)
 		showTreeDetails()
 
 		function showTreeDetails (){
@@ -24,11 +30,24 @@ $(document).on("turbolinks:load", function (){
 });
 
 $(document).on("turbolinks:load", function (){
-	$(".js-about-btn").on("click", function (event){
-	showAboutModal()
+	$(".js-purchase-btn").on("click", function (){
+		updateKart()
 
-	function showAboutModal (){
-		$(".about-modal").modal("show")
+		function updateKart (){
+		$(".js-purchase-description").text(description)
+		$(".js-purchase-title").text(title)
+		$(".js-purchase-price").text(price)
+		$(".js-purchase-img").prop('src', image)
+		}
+	});
+});
+
+$(document).on("turbolinks:load", function (){
+	$(".js-about-btn").on("click", function (event){
+		showAboutModal()
+
+		function showAboutModal (){
+			$(".about-modal").modal("show")
 		}
 	})
 });

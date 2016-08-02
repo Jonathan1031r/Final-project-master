@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
 	def last_will
 		@current_user = current_user
 

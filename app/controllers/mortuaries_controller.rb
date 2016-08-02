@@ -4,7 +4,7 @@ class MortuariesController < ApplicationController
 		marker.lat mortuary.latitude
 		marker.lng mortuary.longitude
 		end
-			
+	
 	end
 
 end

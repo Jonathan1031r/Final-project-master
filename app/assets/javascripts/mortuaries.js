@@ -6,24 +6,67 @@ $(document).on("turbolinks:load", function (){
 
 $(document).on("turbolinks:load", function (){
 	$(".js-mortuary-btn").on("click", function(event){
-		console.log("btn works")
-		navigator.geolocation.getCurrentPosition( getPosition, handleError);
+		var zip = $('.zip_code').val();
+
+		google.maps.event.addDomListener(window, "load", initMap(zip));
+
+		$(".mortuary-modal-sm").modal("hide");
+
 	});
 
-function getPosition(zip){
-	console.log(zip)
-	var lat = zip.coords.latitude;
-	var lng = zip.coords.longitude;	
-	console.log(lat)
-	console.log(lng)
+	function initMap(zip) {
+		var mapDiv = document.getElementById('map');
+		var url = "https://maps.googleapis.com/maps/api/geocode/json?address="+zip+"&key=AIzaSyAV8DPFNoqeAUMr2aFHSDMZuEq0kKQJxu0";	
+		$.getJSON( url, function( data ){
+			var lat = data.results[0].geometry.location.lat;
+			var lng = data.results[0].geometry.location.lng;	
+			var location = [lat, lng];	
+			initializeMap(location);
+		});
+	}
+			
+	var map;
+	var infowindow;
+
+	function initializeMap(location) {
+		var latlng = new google.maps.LatLng(location[0], location[1]);
+		var myOptions = {
+			zoom: 13,
+			center: latlng,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		};
+
+		map = new google.maps.Map(document.getElementById('map'), myOptions);
+
+		infowindow = new google.maps.InfoWindow();
+
+		var service = new google.maps.places.PlacesService(map);
+		
+		service.nearbySearch({
+			location: latlng,
+			radius: 500,
+			type: ['store']
+		}, callback);
+	}
+
+	function callback(results, status) {
+		if (status === google.maps.places.PlacesServiceStatus.OK) {
+			for (var i = 0; i < results.length; i++) {
+				createMarker(results[i]);
+			}
+		}
+	};
+
+	function createMarker(place) {
+		var placeLoc = place.geometry.location;
+		var marker = new google.maps.Marker({
+			map: map,
+			position: place.geometry.location
+		});
+
+		google.maps.event.addListener(marker, 'click', function() {
+			infowindow.setContent(place.name);
+			infowindow.open(map, this);
+		});
 	}
 });
-
-
-
-
-
-function handleError(error){
-	console.log("Error getting position")
-	console.log(error);
-};
