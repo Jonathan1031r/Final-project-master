@@ -2,6 +2,10 @@ source 'https://rubygems.org'
 
 gem 'rails_12factor', group: :production
 
+gem 'sprockets', '>=3.0.0'
+
+gem 'sprockets-es6', require: 'sprockets/es6'
+
 gem 'gmaps4rails'
 
 gem 'geocoder'
