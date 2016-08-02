@@ -14,6 +14,7 @@ $(document).on("turbolinks:load", function (){
 
 	});
 
+
 	function initMap(zip) {
 		var mapDiv = document.getElementById('map');
 		var url = "https://maps.googleapis.com/maps/api/geocode/json?address="+zip+"&key=AIzaSyAV8DPFNoqeAUMr2aFHSDMZuEq0kKQJxu0";	
@@ -27,11 +28,13 @@ $(document).on("turbolinks:load", function (){
 			
 	var map;
 	var infowindow;
+	var service;
 
 	function initializeMap(location) {
 		var latlng = new google.maps.LatLng(location[0], location[1]);
+		//console.log(LatLng);
 		var myOptions = {
-			zoom: 13,
+			zoom: 11,
 			center: latlng,
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		};
@@ -40,12 +43,13 @@ $(document).on("turbolinks:load", function (){
 
 		infowindow = new google.maps.InfoWindow();
 
-		var service = new google.maps.places.PlacesService(map);
+
+		service = new google.maps.places.PlacesService(map);
 		
 		service.nearbySearch({
 			location: latlng,
-			radius: 500,
-			type: ['store']
+			radius: 100000,
+			type: ['funeral_home']
 		}, callback);
 	}
 
@@ -58,6 +62,7 @@ $(document).on("turbolinks:load", function (){
 	};
 
 	function createMarker(place) {
+		console.log(place);
 		var placeLoc = place.geometry.location;
 		var marker = new google.maps.Marker({
 			map: map,
@@ -65,7 +70,8 @@ $(document).on("turbolinks:load", function (){
 		});
 
 		google.maps.event.addListener(marker, 'click', function() {
-			infowindow.setContent(place.name);
+			infowindow.setContent(place.name, place.formatted_phone_number);
+			//infowindow.setContent(place.address);
 			infowindow.open(map, this);
 		});
 	}

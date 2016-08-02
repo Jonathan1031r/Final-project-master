@@ -1,5 +1,9 @@
 class PurchasesController < ApplicationController
-	def index
+
+	def create
+		@title = params[:product_title]
+		@price = params[:product_price]
+		@description = params[:description]
 		if user_signed_in? 
 			@current_user = current_user
 			render 'index'
@@ -7,18 +11,13 @@ class PurchasesController < ApplicationController
 	 		redirect_to "/users/sign_up" 
 		end 
 
-			puts 'bananas'
-			puts @current_user.inspect
-			puts 'apples'
-			puts @the_product.inspect
-	end
+		# render plain: @title.inspect
 
-	def show
-		@shopping_kart = Purchase.create(user_id: params[:id], product_id: params[:product_id])
-		@the_user = User.find_by(id: params[:id])
-		@the_product = Product.find_by(id: params[:id])
 
-		
+		# @description => params[:product_description]
+		# @price => params[:price]
+		# @image => params[:image]
+		# @product_id => params[:id]
 
 	end
 

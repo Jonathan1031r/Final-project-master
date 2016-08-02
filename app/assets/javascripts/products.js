@@ -1,10 +1,19 @@
 
 $(document).on("turbolinks:load", function (){
+
+	// var title = $(event.currentTarget).data("title")	
+
+
+
+
 	$(".js-img-btn").on("click", function(event){
 		event.preventDefault();
 		var description = $(event.currentTarget).data("description")
+		$("#product-form-description").val(description)
 		var title = $(event.currentTarget).data("title")
+		$("#product-form-title").val(title)
 		var price = $(event.currentTarget).data("price")
+		$("#product-form-price").val(price)
 		var image = $(event.currentTarget).data("image")
 		var id = $(event.currentTarget).data("id")
 		sessionStorage.setItem("the_product_id", id)
@@ -29,18 +38,6 @@ $(document).on("turbolinks:load", function (){
 	});
 });
 
-$(document).on("turbolinks:load", function (){
-	$(".js-purchase-btn").on("click", function (){
-		updateKart()
-
-		function updateKart (){
-		$(".js-purchase-description").text(description)
-		$(".js-purchase-title").text(title)
-		$(".js-purchase-price").text(price)
-		$(".js-purchase-img").prop('src', image)
-		}
-	});
-});
 
 $(document).on("turbolinks:load", function (){
 	$(".js-about-btn").on("click", function (event){

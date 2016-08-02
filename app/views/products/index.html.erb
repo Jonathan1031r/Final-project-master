@@ -25,9 +25,10 @@
 	<div class="col-sm-8 js-products" >
 		<%  @products_array.each do |x| %>
 			<button class="img-btn js-img-btn" data-description= "<%=x.description%>" 
-				data-title= "<%=x.title%>" 
-				data-price= "<%=x.price%>"
-				data-image= "<%=x.image%>">
+				data-title = "<%=x.title%>" 
+				data-price = "<%=x.price%>"
+				data-image = "<%=x.image%>"
+				data-id = "<%=x.id%>">
 				<div class="grow pic">
 				<img class="js-img" src="<%= x.image %>">
 				</div>	
@@ -74,11 +75,14 @@
 			<span>
 	          <dt>Price: $</dt>
 	          <dd class="js-tree-price">500</dd>
-	          <form>
-	          <input type="hidden" name="price" value="12">
-	          	<a href="/purchases" class="js-purchase-btn btn btn-success">
-					Purchase
-				</a>
+		        <form action="/purchases" method="POST">
+					<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+					<input type="hidden" id = "product-form-title" name="product_title" value= $('.js-img-btn).data("title")'>
+					<input type="hidden" id = "product-form-description" name="product_description" value=$('.js-img-btn).data("description")'>
+					<input type="hidden" id = "product-form-price" name="product_price" value=$('.js-img-btn).data("price")'>
+					<center>
+						<input type="submit" value="Add To Purchases" class="js-purchase-btn btn btn-success">
+					</center>
 				</form>
 			</span>	
 	        </dl>
