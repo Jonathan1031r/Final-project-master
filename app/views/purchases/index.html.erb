@@ -1,8 +1,17 @@
 <center>
 	<div class="container-fluid">
 		<div class="col-sm-6 purchase-div">
-			<strong>Hello, <%=@current_user.name %></strong>
-			<h4><%= @title %></h4>
+			<div>
+				Your order:
+				<strong><%= @title %></strong>
+			</div>
+			<img src="http://img14.deviantart.net/60ed/i/2015/123/8/a/polymer_clay_green_vine_vase_by_mandarinmoon-d22ye3p.jpg" width="200" height="200">
+			<div>
+				Description: <%= @description%>
+			</div>
+			<div>
+				Price: $ <%= @price %>
+			</div>
 		</div>
 		<div class="col-sm-6 purchase-div pull-right">
 			<form class="form-horizontal">

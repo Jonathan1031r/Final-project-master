@@ -8,9 +8,9 @@
 
 
 
-user1 = User.create!(name: "Jonathan", phone: "7861234567", email: "jonathan@gmail.com", encrypted_password: "password")
-user2 = User.create!(name: "Gabriel", phone: "3054567890", email:  "gab@gmail.com", encrypted_password: "password")
-user3 = User.create!(name: "Nick", phone: "9547654456", email: "nick@gmail.com", encrypted_password: "password")
+user1 = User.create!(name: "Jonathan", phone: "7861234567", email: "jonathan@gmail.com", password: "password")
+user2 = User.create!(name: "Gabriel", phone: "3054567890", email:  "gab@gmail.com", password: "password")
+user3 = User.create!(name: "Nick", phone: "9547654456", email: "nick@gmail.com", password: "password")
 
 apple = Product.create!(title: "Apple Tree", description: "Can grow from 10 to 30 feet tall and nearly as wide. Apples are moderately fast growing, but growth slows with age. Apple trees can live for 100 years or more. Apple trees bloom in the spring, set fruit, and take from 100 to 200 days to reach harvest depending upon the variety.", image: "http://efdreams.com/data_images/dreams/apple-tree/apple-tree-02.jpg", price: 450)
 mango = Product.create!(title: "Mango Tree", description: "The mango is a very attractive, evergreen tree with glossy, dense foliage. The new shoots are reddish, the mature leaves a dark green. Depending on the variety mango trees can grow huge (to 35 m and 15 m across for seedling trees of older varieties). But you can keep a mango tree small by pruning it regularly.", image: "http://www.abc.net.au/news/image/6366758-3x2-940x627.jpg", price: 500)

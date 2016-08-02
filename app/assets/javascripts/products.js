@@ -1,11 +1,5 @@
 
 $(document).on("turbolinks:load", function (){
-
-	// var title = $(event.currentTarget).data("title")	
-
-
-
-
 	$(".js-img-btn").on("click", function(event){
 		event.preventDefault();
 		var description = $(event.currentTarget).data("description")

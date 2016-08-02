@@ -31,6 +31,7 @@
 	<div class="col-sm-4 css-header-right" align="right">
 
 		<% if user_signed_in? %>
+			<font color="white">Hello, "<%=current_user.name%>"</font>
 			<font class="signout-header" size="4">
 				<%= link_to "Logout", destroy_user_session_path, method: :delete %>
 			</font>
