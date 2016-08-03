@@ -13,11 +13,7 @@ class CommentsController < ApplicationController
 
     def update    
         comment = Comment.find_by(id: params[:id])
-            unless comment
-                render json: {error: "comment not found"}
-                status: 404
-                return
-            end
+
         comment.update(comment_params)
         render json: comment    
     end
