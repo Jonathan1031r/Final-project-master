@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
 		@current_user = current_user
 		@products_array = Product.all
 		@comments_array = Comment.all.order('created_at DESC').take(5)
-		@comments_array_right = @comments_array[6...11]
+		@comments_array_right = Comment.all.order('created_at DESC')[5...11]
 		 render "index"
 	end
 
